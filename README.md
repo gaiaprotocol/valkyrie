@@ -1,1 +1,7 @@
 # valkyrie
+
+## Mainnet
+- Valkyrie: 0x7CCFAd5082461b4E7a36349D5039E3FE848F53b0
+
+## Testnet
+- Valkyrie: 0xdC5323d27c611D978E33B65ef9E1eA49fd9a0199
