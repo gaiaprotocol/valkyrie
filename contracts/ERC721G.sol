@@ -319,7 +319,7 @@ contract ERC721G is Context, ERC165, IERC721G, IERC721Metadata, AccessControl, P
         return _exists(tokenId);
     }
 
-    function totalSupply() external view virtual returns (uint256) {
+    function totalSupply() public view virtual returns (uint256) {
         return _totalSupply;
     }
 
@@ -327,7 +327,7 @@ contract ERC721G is Context, ERC165, IERC721G, IERC721Metadata, AccessControl, P
     function mint(address to) public virtual {
         require(hasRole(MINTER_ROLE, msg.sender), "ERC721G: must have minter role to mint");
 
-        _mint(to, _totalSupply);
+        _mint(to, totalSupply());
     }
 
     function burn(uint256 tokenId) external virtual {

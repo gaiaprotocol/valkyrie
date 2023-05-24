@@ -29,11 +29,19 @@ describe("SimpleMint", function () {
     it("mint function test", async () => {
         expect(await nft.totalSupply()).to.be.equal(0);
         expect(await nft.balanceOf(deployer.address)).to.be.equal(0);
+
         await nft.mint(deployer.address);
         expect(await nft.totalSupply()).to.be.equal(1);
         expect(await nft.balanceOf(deployer.address)).to.be.equal(1);
         expect(await nft.ownerOf(0)).to.be.equal(deployer.address);
         expect(await nft.tokenOfOwnerByIndex(deployer.address, 0)).to.be.equal(0);
         expect(await nft.tokenURI(0)).to.be.equal("https://backend.gaiaprotocol.com/metadata/valkyrie/0");
+
+        await nft.mint(deployer.address);
+        expect(await nft.totalSupply()).to.be.equal(2);
+        expect(await nft.balanceOf(deployer.address)).to.be.equal(2);
+        expect(await nft.ownerOf(1)).to.be.equal(deployer.address);
+        expect(await nft.tokenOfOwnerByIndex(deployer.address, 1)).to.be.equal(1);
+        expect(await nft.tokenURI(1)).to.be.equal("https://backend.gaiaprotocol.com/metadata/valkyrie/1");
     });
 });
